@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="form-group">
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <input formControlName="userName" placeholder="username">
+      <input type="password" formControlName="password"  placeholder="password">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>
+
+<div class="row text-info">
+  <div>username admin: khanh</div>
+  <div>username admin: 123</div>
+</div>
+
+<div class="row">
+  <h3>{{message.message}}!</h3>
+</div>
