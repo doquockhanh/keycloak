@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@SessionAttributes("Cart")
+@CrossOrigin(originPatterns = "*")
+//@SessionAttributes("Cart")
 public class CartController {
 
     @Autowired
@@ -22,9 +23,11 @@ public class CartController {
     @GetMapping("/getAllProduct")
     public ResponseEntity<List<Product>> getAllProduct(){
         List<Product> products = productRepository.findAll();
-        if(products != null || products.size() != 0){
-            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_FOUND);
+
+        if(products == null || products.size() == 0){
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
         }
+
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
@@ -33,10 +36,10 @@ public class CartController {
         products.add(productRepository.findProductById(id));
     }
 
-    @ModelAttribute("Cart")
-    public List<Product> cart(){
-        return new ArrayList<>();
-    }
+//    @ModelAttribute("Cart")
+//    public List<Product> cart(){
+//        return new ArrayList<>();
+//    }
 
     @GetMapping("/getCart")
     public ResponseEntity<List<Product>> getCart( @SessionAttribute("Card") List<Product> products){

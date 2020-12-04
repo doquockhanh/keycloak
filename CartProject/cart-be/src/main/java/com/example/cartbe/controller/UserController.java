@@ -18,17 +18,18 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login")
     public ResponseEntity<Message> login(@RequestBody User user){
         Message message = new Message();
         message.setNote(false);
         User userFound = userRepository.findUserByUserName(user.getUserName());
         if(userFound == null){
-            message.setMessage("Account not exist");
+            message.setMessage("Account does not exist");
             return new ResponseEntity<>(message, HttpStatus.OK);
         }
 
         if(userFound.getPassword().equals(user.getPassword())){
+            System.out.println("khanh");
             message.setMessage("Login successful");
             message.setNote(true);
             return new ResponseEntity<>(message, HttpStatus.OK);
