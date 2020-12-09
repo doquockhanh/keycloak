@@ -29,7 +29,6 @@ public class UserController {
         }
 
         if(userFound.getPassword().equals(user.getPassword())){
-            System.out.println("khanh");
             message.setMessage("Login successful");
             message.setNote(true);
             return new ResponseEntity<>(message, HttpStatus.OK);

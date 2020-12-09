@@ -1,0 +1,5 @@
+export const SAVE_LOGIN_STATUS = 'SAVE_LOGIN_STATUS';
+export const GET_PRODUCTS_API = 'GET_PRODUCTS_API ';
+
+export const SET_MESSAGE = 'SET_MESSAGE ';
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE ';

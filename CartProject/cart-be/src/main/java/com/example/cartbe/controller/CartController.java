@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(originPatterns = "*")
-//@SessionAttributes("Cart")
+@SessionAttributes("Cart")
 public class CartController {
 
     @Autowired
@@ -36,10 +36,10 @@ public class CartController {
         products.add(productRepository.findProductById(id));
     }
 
-//    @ModelAttribute("Cart")
-//    public List<Product> cart(){
-//        return new ArrayList<>();
-//    }
+    @ModelAttribute("Cart")
+    public List<Product> cart(){
+        return new ArrayList<>();
+    }
 
     @GetMapping("/getCart")
     public ResponseEntity<List<Product>> getCart( @SessionAttribute("Card") List<Product> products){

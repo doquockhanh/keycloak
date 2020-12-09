@@ -1,15 +1,17 @@
 import './App.css';
 import React from 'react';
 import 'ajax'
-import {Route, Switch} from "react-router-dom";
-import Form from './myE/form'
-import Product from "./myE/product";
+import Form from './components/Form';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import ProductList from "./components/ListProduct"
 
 export default function App() {
-    return(
-        <Switch>
-            <Route exact path={"/"} component={Form} />
-            <Route exact path={"/products"} component={Product} />
-        </Switch>
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route exact path={"/"} component={Form}/>
+                <Route exact path={"/products"} component={ProductList} />
+            </Switch>
+        </BrowserRouter>
     )
 }
